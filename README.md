@@ -121,7 +121,7 @@ Edit `services` in `config/dauth.php` **in this package**, commit, tag a new ver
     'name' => 'Mail',
     'description' => 'Your mailbox',
     'url' => 'https://mail.example.com',
-    'icon' => 'mail',      // accounts, panel, mail, chat, cloud, shop, docs, chart, code, calendar
+    'icon' => 'mail',      // accounts, panel, mail, video, chat, cloud, shop, docs, chart, code, calendar
     'logo' => null,        // or an image URL instead of an icon
     'color' => '#e11d48',  // any CSS colour
 ],

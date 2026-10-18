@@ -76,8 +76,8 @@ return [
     | The services shown in every app's grid switcher. Keep this list here so
     | updating the package updates it everywhere. Links open in the same tab.
     |
-    | icon: one of accounts, panel, mail, chat, cloud, shop, docs, chart, code,
-    |       calendar, or leave null and set `logo` to an image URL.
+    | icon: one of accounts, panel, mail, video, chat, cloud, shop, docs, chart,
+    |       code, calendar, or leave null and set `logo` to an image URL.
     | color: any CSS colour; used for the icon tile.
     |
     */
@@ -98,6 +98,14 @@ return [
             'url' => 'http://dpanel.localhost',
             'icon' => 'panel',
             'color' => '#2563eb',
+        ],
+        [
+            'key' => 'banglatube',
+            'name' => 'BanglaTube',
+            'description' => 'Watch and share videos',
+            'url' => 'http://local.youtube.localhost',
+            'icon' => 'video',
+            'color' => '#dc2626',
         ],
         [
             'key' => 'mail',
