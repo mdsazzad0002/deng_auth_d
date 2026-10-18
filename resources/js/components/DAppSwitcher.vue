@@ -5,7 +5,8 @@ import { icons } from '../icons';
 import type { DService } from '../types';
 
 // Grid button that opens a slide-over listing every D app. Self-contained: no UI kit or Tailwind needed.
-// Dark mode follows a `dark` class on <html>, like Tailwind's class strategy.
+// Dark mode follows a `dark` class on <html>, like Tailwind's class strategy. (Plain `.dark .x` selectors: in
+// scoped CSS, `:global(.dark) .x` would compile to just `.dark` and style <html> instead.)
 const props = withDefaults(
     defineProps<{
         /** Overrides the list shared by the Laravel package. */
@@ -152,12 +153,12 @@ onBeforeUnmount(() => {
     outline: 2px solid rgb(16 185 129 / 0.45);
     outline-offset: 1px;
 }
-:global(.dark) .d-switcher-trigger {
+.dark .d-switcher-trigger {
     border-color: #334155;
     color: #94a3b8;
 }
-:global(.dark) .d-switcher-trigger:hover,
-:global(.dark) .d-switcher-trigger[data-state='open'] {
+.dark .d-switcher-trigger:hover,
+.dark .d-switcher-trigger[data-state='open'] {
     border-color: #475569;
     background: #1e293b;
     color: #e2e8f0;
@@ -184,7 +185,7 @@ onBeforeUnmount(() => {
     font-family: inherit;
     outline: none;
 }
-:global(.dark) .d-switcher-panel {
+.dark .d-switcher-panel {
     background: #0b1220;
     color: #f1f5f9;
     box-shadow: -20px 0 50px rgb(0 0 0 / 0.5);
@@ -198,7 +199,7 @@ onBeforeUnmount(() => {
     border-bottom: 1px solid #e2e8f0;
     padding: 1.25rem 1.5rem;
 }
-:global(.dark) .d-switcher-header {
+.dark .d-switcher-header {
     border-color: #1e293b;
 }
 .d-switcher-header h2 {
@@ -212,7 +213,7 @@ onBeforeUnmount(() => {
     font-size: 0.75rem;
     color: #64748b;
 }
-:global(.dark) .d-switcher-header p {
+.dark .d-switcher-header p {
     color: #94a3b8;
 }
 
@@ -233,7 +234,7 @@ onBeforeUnmount(() => {
     background: #f1f5f9;
     color: #0f172a;
 }
-:global(.dark) .d-switcher-close:hover {
+.dark .d-switcher-close:hover {
     background: #1e293b;
     color: #f1f5f9;
 }
@@ -296,11 +297,11 @@ onBeforeUnmount(() => {
     border-color: #a7f3d0;
     background: rgb(236 253 245 / 0.7);
 }
-:global(.dark) .d-switcher-tile:hover {
+.dark .d-switcher-tile:hover {
     border-color: #334155;
     background: rgb(30 41 59 / 0.6);
 }
-:global(.dark) .d-switcher-tile.is-current {
+.dark .d-switcher-tile.is-current {
     border-color: rgb(6 78 59 / 0.7);
     background: rgb(2 44 34 / 0.35);
 }
@@ -320,7 +321,7 @@ onBeforeUnmount(() => {
 .d-switcher-tile:hover .d-switcher-icon {
     transform: scale(1.05);
 }
-:global(.dark) .d-switcher-icon {
+.dark .d-switcher-icon {
     background: color-mix(in srgb, var(--d-tile) 22%, transparent);
     color: color-mix(in srgb, var(--d-tile) 55%, white);
 }
@@ -348,7 +349,7 @@ onBeforeUnmount(() => {
     font-weight: 600;
     color: #334155;
 }
-:global(.dark) .d-switcher-name {
+.dark .d-switcher-name {
     color: #e2e8f0;
 }
 .d-switcher-desc {
@@ -360,7 +361,7 @@ onBeforeUnmount(() => {
     line-height: 1.35;
     color: #64748b;
 }
-:global(.dark) .d-switcher-desc {
+.dark .d-switcher-desc {
     color: #94a3b8;
 }
 
