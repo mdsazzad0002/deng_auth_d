@@ -1,0 +1,42 @@
+{
+    "name": "dengrweb/dauth",
+    "description": "Sign in with Dengrweb Accounts, plus the shared D apps switcher, for Laravel + Vue (Inertia) apps.",
+    "type": "library",
+    "license": "proprietary",
+    "keywords": ["laravel", "oauth2", "sso", "vue", "inertia"],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^11.0|^12.0",
+        "illuminate/http": "^11.0|^12.0",
+        "illuminate/routing": "^11.0|^12.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0|^10.0",
+        "phpunit/phpunit": "^11.0"
+    },
+    "suggest": {
+        "inertiajs/inertia-laravel": "Shares the services list and sign-in URL with your Vue pages automatically."
+    },
+    "autoload": {
+        "psr-4": {
+            "Dengrweb\\DAuth\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dengrweb\\DAuth\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dengrweb\\DAuth\\DAuthServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

@@ -1,0 +1,17 @@
+{
+    "name": "@dengrweb/dauth",
+    "version": "0.1.0",
+    "description": "Vue components for Dengrweb Accounts: the D apps switcher and the sign-in button.",
+    "private": true,
+    "type": "module",
+    "main": "resources/js/index.ts",
+    "module": "resources/js/index.ts",
+    "types": "resources/js/index.ts",
+    "files": [
+        "resources/js"
+    ],
+    "peerDependencies": {
+        "@inertiajs/vue3": "^1.0.0 || ^2.0.0",
+        "vue": "^3.4.0"
+    }
+}
