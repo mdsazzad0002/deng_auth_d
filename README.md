@@ -21,18 +21,18 @@ Copy the client ID and secret.
 
 ## 2. Install
 
-This package is installed from git. Add the repository to the app's `composer.json`:
+This package is installed from GitHub. Add the repository to the app's `composer.json`:
 
 ```json
 "repositories": [
-    { "type": "vcs", "url": "git@github.com:YOUR-ORG/deng_auth_d.git" }
+    { "type": "vcs", "url": "https://github.com/mdsazzad0002/deng_auth_d" }
 ]
 ```
 
 During local development you can point `url` at the folder instead, e.g. `"/home/sazzad/Desktop/deng_auth_d"`. Composer reads it as a git repository and copies the committed code into `vendor/`.
 
 ```bash
-composer require dengrweb/dauth:^0.1
+composer require dengrweb/dauth:^0.1   # or dev-main to follow the main branch
 php artisan vendor:publish --tag=dauth-migrations
 php artisan migrate
 ```
@@ -113,7 +113,7 @@ Dark mode follows a `dark` class on `<html>`, like Tailwind's class strategy. Li
 
 ## The services list
 
-Edit `services` in `config/dauth.php` **in this package**, commit, tag a new version, then run `composer update dengrweb/dauth` in each app:
+Edit `services` in `config/dauth.php` **in this package**, commit, tag a new version, push the commit and the tag (`git push origin main --tags`), then run `composer update dengrweb/dauth` in each app:
 
 ```php
 [
