@@ -70,6 +70,27 @@ To make it the app's only sign-in, send guests there:
 
 After signing in, users go back to the page they asked for, or to `dauth.home` (`/dashboard`).
 
+## Automatic sign-in
+
+If someone is already signed in to Accounts, they're signed in to your app as soon as they open it, without clicking anything (like YouTube with a Google account).
+
+On a guest's first full page load in a browser session, the app bounces once through Accounts with `prompt=none`. Accounts answers immediately without showing a page: with a sign-in, or with "not signed in". Either way the user lands back on the page they opened. It runs once per session, so guests who aren't signed in to Accounts just browse normally.
+
+- **Requires a Trusted app on Accounts** (skip the "Allow access?" screen). Otherwise Accounts answers `consent_required` and the user stays a guest until they click Sign in.
+- **Skipped for:** signed-in users, Inertia/XHR/JSON requests, non-HTML requests (video, images, `fetch`), prefetches, bots, and `silent_except` paths.
+- **After signing out** (`dauth.logout`), that browser session isn't signed in automatically again.
+- **If you log users out yourself** (for example, a "banned" check that invalidates the session), call `SilentSignIn::suppress($request)` afterwards. Otherwise they'd be signed straight back in:
+
+```php
+use Dengrweb\DAuth\Http\Middleware\SilentSignIn;
+
+Auth::logout();
+$request->session()->invalidate();
+SilentSignIn::suppress($request);
+```
+
+To turn it off: `DAUTH_SILENT_SIGN_IN=false`. In tests, turn it off in `phpunit.xml` (`<env name="DAUTH_SILENT_SIGN_IN" value="false"/>`), because Laravel's test requests look like browser page loads.
+
 ## 4. Vue
 
 Point an alias at the package's Vue code in `vite.config.ts`:

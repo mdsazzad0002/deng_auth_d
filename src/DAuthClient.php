@@ -34,9 +34,12 @@ class DAuthClient
         return ['verifier' => $verifier, 'challenge' => strtr(rtrim(base64_encode(hash('sha256', $verifier, true)), '='), '+/', '-_')];
     }
 
-    public function authorizeUrl(string $state, string $challenge): string
+    /**
+     * @param  string|null  $prompt  "none" asks Accounts to answer without showing any page.
+     */
+    public function authorizeUrl(string $state, string $challenge, ?string $prompt = null): string
     {
-        return $this->url.'/oauth/authorize?'.http_build_query([
+        return $this->url.'/oauth/authorize?'.http_build_query(array_filter([
             'client_id' => $this->clientId,
             'redirect_uri' => $this->redirect,
             'response_type' => 'code',
@@ -44,7 +47,8 @@ class DAuthClient
             'state' => $state,
             'code_challenge' => $challenge,
             'code_challenge_method' => 'S256',
-        ]);
+            'prompt' => $prompt,
+        ], fn ($value) => $value !== null));
     }
 
     /**

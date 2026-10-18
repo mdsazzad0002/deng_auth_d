@@ -2,6 +2,8 @@
 
 namespace Dengrweb\DAuth;
 
+use Dengrweb\DAuth\Http\Middleware\SilentSignIn;
+use Illuminate\Contracts\Http\Kernel as HttpKernel;
 use Illuminate\Support\ServiceProvider;
 
 class DAuthServiceProvider extends ServiceProvider
@@ -23,6 +25,16 @@ class DAuthServiceProvider extends ServiceProvider
     {
         if (config('dauth.routes')) {
             $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+
+            // Added on the HTTP kernel, not the router: the kernel re-syncs its groups to the router
+            // whenever they change (e.g. in bootstrap/app.php), which would drop a router-only push.
+            if (config('dauth.silent_sign_in') && $this->app->bound(HttpKernel::class)) {
+                $kernel = $this->app->make(HttpKernel::class);
+
+                if (method_exists($kernel, 'appendMiddlewareToGroup')) {
+                    $kernel->appendMiddlewareToGroup('web', SilentSignIn::class);
+                }
+            }
         }
 
         if ($this->app->runningInConsole()) {

@@ -41,6 +41,14 @@ return [
 
     'middleware' => ['web'],
 
+    // Sign guests in automatically when they're already signed in to Accounts (prompt=none),
+    // once per browser session, on full page loads only. Needs the app to skip the consent
+    // screen (mark it Trusted on Accounts); otherwise guests just stay guests.
+    'silent_sign_in' => env('DAUTH_SILENT_SIGN_IN', true),
+
+    // Paths the automatic sign-in never runs on, e.g. ['webhooks/*', 'embed/*'].
+    'silent_except' => [],
+
     // Where to send the user after signing in (unless they were heading somewhere) and after signing out.
     'home' => '/dashboard',
 
