@@ -174,6 +174,6 @@ class SignInTest extends TestCase
         $this->assertSame('https://accounts.test', $props['url']);
         $this->assertSame(url('auth/dauth/redirect'), $props['loginUrl']);
         $this->assertNotEmpty($props['services']);
-        $this->assertSame(['key', 'name', 'description', 'url', 'icon', 'color'], array_keys($props['services'][0]));
+        $this->assertSame(['key', 'name', 'description', 'url', 'icon', 'logo', 'color'], array_keys($props['services'][0]));
     }
 }

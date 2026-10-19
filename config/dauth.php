@@ -14,7 +14,7 @@ return [
 
     'name' => env('DAUTH_NAME', 'Dengrweb Accounts'),
 
-    'url' => rtrim((string) env('DAUTH_URL', 'http://accounts.localhost'), '/'),
+    'url' => rtrim((string) env('DAUTH_URL', 'https://accounts.dengrweb.com'), '/'),
 
     'client_id' => env('DAUTH_CLIENT_ID'),
 
@@ -92,36 +92,40 @@ return [
 
     'services' => [
         [
+            'key' => 'search',
+            'name' => 'Search',
+            'description' => 'Find what matters',
+            'url' => 'https://dengrweb.com',
+            'icon' => null,
+            'logo' => 'https://dengrweb.com/pwa/icon-192.png',
+            'color' => '#0c6650',
+        ],
+        [
             'key' => 'accounts',
             'name' => 'Accounts',
             'description' => 'Your profile and sign-in',
-            'url' => 'http://accounts.localhost',
+            'url' => 'https://accounts.dengrweb.com',
             'icon' => 'accounts',
+            'logo' => null,
             'color' => '#059669',
+        ],
+        [
+            'key' => 'webmaster',
+            'name' => 'Webmaster',
+            'description' => 'Get your site indexed',
+            'url' => 'https://webmaster.dengrweb.com',
+            'icon' => 'chart',
+            'logo' => null,
+            'color' => '#0d9488',
         ],
         [
             'key' => 'panel',
             'name' => 'dPanel',
             'description' => 'Hosting control panel',
-            'url' => 'http://dpanel.localhost',
+            'url' => 'https://dpanel.dengrweb.com',
             'icon' => 'panel',
+            'logo' => null,
             'color' => '#2563eb',
-        ],
-        [
-            'key' => 'banglatube',
-            'name' => 'BanglaTube',
-            'description' => 'Watch and share videos',
-            'url' => 'http://local.youtube.localhost',
-            'icon' => 'video',
-            'color' => '#dc2626',
-        ],
-        [
-            'key' => 'mail',
-            'name' => 'Mail',
-            'description' => 'Your mailbox',
-            'url' => 'http://mail.localhost',
-            'icon' => 'mail',
-            'color' => '#e11d48',
         ],
     ],
 
