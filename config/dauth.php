@@ -127,6 +127,15 @@ return [
             'logo' => null,
             'color' => '#2563eb',
         ],
+        [
+            'key' => 'lazytime',
+            'name' => 'LazyTime',
+            'description' => 'Watch and share videos',
+            'url' => 'https://lazytime.dengrweb.com',
+            'icon' => 'video',
+            'logo' => null,
+            'color' => '#dc2626',
+        ],
     ],
 
     // Share `dauth` (services, sign-in URL, account URL) with every Inertia page.
