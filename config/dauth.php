@@ -136,6 +136,15 @@ return [
             'logo' => null,
             'color' => '#dc2626',
         ],
+        [
+            'key' => 'about',
+            'name' => 'About',
+            'description' => 'Software solutions',
+            'url' => 'https://about.dengrweb.com',
+            'icon' => 'code',
+            'logo' => null,
+            'color' => '#7c3aed',
+        ],
     ],
 
     // Share `dauth` (services, sign-in URL, account URL) with every Inertia page.
